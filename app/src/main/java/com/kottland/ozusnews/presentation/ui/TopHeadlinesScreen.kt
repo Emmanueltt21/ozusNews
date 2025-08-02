@@ -13,6 +13,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.kottland.ozusnews.presentation.viewmodel.NewsViewModel
+import androidx.compose.foundation.Image
+import androidx.compose.material3.Divider
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
+import coil.compose.rememberAsyncImagePainter
+import androidx.compose.ui.text.style.TextAlign
 
 @Composable
 fun TopHeadlinesScreen(
@@ -59,15 +66,46 @@ fun TopHeadlinesScreen(
                     } else {
                         LazyColumn(modifier = Modifier.fillMaxSize()) {
                             items(articles) { article ->
-                                Column(
+                                Row(
                                     modifier = Modifier
-                                        .padding(16.dp)
+                                        .padding(12.dp)
+                                        .fillMaxWidth()
                                         .clickable { onArticleClick(article) }
                                 ) {
-                                    Text(text = article.title ?: "No Title", style = MaterialTheme.typography.titleMedium)
-                                    Spacer(modifier = Modifier.height(4.dp))
-                                    Text(text = article.description ?: "", style = MaterialTheme.typography.bodyMedium)
+                                    Image(
+                                        painter = rememberAsyncImagePainter(article.urlToImage),
+                                        contentDescription = article.title,
+                                        modifier = Modifier
+                                            .size(100.dp)
+                                            .aspectRatio(1.6f)
+                                            .padding(end = 12.dp),
+                                        contentScale = ContentScale.Crop
+                                    )
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text(
+                                            text = article.title ?: "No Title",
+                                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                                            maxLines = 2,
+                                            overflow = TextOverflow.Ellipsis
+                                        )
+                                        Spacer(modifier = Modifier.height(4.dp))
+                                        Text(
+                                            text = article.description ?: "",
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            maxLines = 2,
+                                            overflow = TextOverflow.Ellipsis
+                                        )
+                                        Spacer(modifier = Modifier.height(4.dp))
+                                        Text(
+                                            text = article.publishedAt?.replace("T", " ")?.replace("Z", "") ?: "",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.primary,
+                                            textAlign = TextAlign.End,
+                                            modifier = Modifier.fillMaxWidth()
+                                        )
+                                    }
                                 }
+                                Divider()
                             }
                         }
                     }

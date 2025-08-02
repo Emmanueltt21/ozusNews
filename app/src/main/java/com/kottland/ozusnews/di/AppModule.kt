@@ -14,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 import android.content.Context
 import androidx.room.Room
+import com.kottland.ozusnews.Constants
 import com.kottland.ozusnews.data.model.OzusNewsDatabase
 import com.kottland.ozusnews.data.repository.BookmarksRepositoryImpl
 import com.kottland.ozusnews.data.model.ArticleDao
@@ -73,7 +74,6 @@ object AppModule {
 
     @Provides
     @ApiKey
-    fun provideApiKey(): String =
-        // Removed: import com.ozusnews.BuildConfig (duplicate)
-        BuildConfig.NEWS_API_KEY
+fun provideApiKey(): String =
+     Constants.newsApiKey
 }
