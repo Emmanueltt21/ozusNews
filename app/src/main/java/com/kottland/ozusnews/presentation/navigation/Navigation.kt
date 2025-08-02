@@ -72,6 +72,7 @@ fun OzusNewsNavHost(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
+                val bookmarksViewModel: com.kottland.ozusnews.presentation.viewmodel.BookmarksViewModel = hiltViewModel()
                 TopHeadlinesScreen(
                     viewModel = viewModel,
                     onArticleClick = { article ->
@@ -79,6 +80,9 @@ fun OzusNewsNavHost(
                     },
                     onCategoryClick = {
                         navController.navigate(Screen.Category.route)
+                    },
+                    onBookmark = { article ->
+                        bookmarksViewModel.addBookmark(article)
                     }
                 )
             }
@@ -106,7 +110,12 @@ fun OzusNewsNavHost(
             composable("article_detail/{title}") { backStackEntry ->
                 val title = backStackEntry.arguments?.getString("title")
                 val article = viewModel.articles.value.find { it.title == title }
-                ArticleDetailScreen(article = article)
+                val bookmarksViewModel: com.kottland.ozusnews.presentation.viewmodel.BookmarksViewModel = hiltViewModel()
+                ArticleDetailScreen(
+                    article = article,
+                    onBack = { navController.popBackStack() },
+                    onBookmark = { article?.let { bookmarksViewModel.addBookmark(it) } }
+                )
             }
         }
     }

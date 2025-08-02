@@ -22,7 +22,7 @@ import androidx.compose.ui.layout.ContentScale
 fun ArticleDetailScreen(
     article: Article?,
     onBack: () -> Unit = {},
-    onBookmark: () -> Unit = {},
+    onBookmark: (Article?) -> Unit = {},
     onShare: () -> Unit = {}
 ) {
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
@@ -36,7 +36,7 @@ fun ArticleDetailScreen(
                 style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier.weight(1f)
             )
-            IconButton(onClick = onBookmark) {
+            IconButton(onClick = { onBookmark(article) }) {
                 Icon(Icons.Default.Favorite, contentDescription = "Bookmark")
             }
             IconButton(onClick = onShare) {
