@@ -1,4 +1,6 @@
-# OzusNews
+# About OzusNews
+
+OzusNews is a modern Android news application that delivers the latest headlines and articles across various categories, including Business, Entertainment, Health, Science, Sports, and Technology. With a user-friendly interface inspired by BBC News, OzusNews allows users to browse, bookmark, and share news stories with ease. The app features a horizontally scrollable category selector, visually rich news lists, detailed article views, and seamless bookmarking functionality for a personalized news experience.
 
 OzusNews is a modern Android news application built with Kotlin, Jetpack Compose, Hilt (Dagger), Room, and MVVM architecture. It provides users with the latest news articles, bookmarking capabilities, and a clean, intuitive UI.
 

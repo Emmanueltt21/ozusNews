@@ -67,14 +67,14 @@ fun TopHeadlinesScreen(
                 }
             }
         }
-        Text(
+       /* Text(
             text = "Browse by Category",
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(bottom = 8.dp)
                 .clickable { onCategoryClick() }
-        )
+        )*/
         Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
             when {
                 isLoading -> {

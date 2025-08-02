@@ -32,7 +32,7 @@ fun ArticleDetailScreen(
             }
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = article?.title ?: "No Title",
+                text = "News Details",
                 style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier.weight(1f)
             )
@@ -45,6 +45,11 @@ fun ArticleDetailScreen(
         }
         Spacer(modifier = Modifier.height(16.dp))
         article?.urlToImage?.let { imageUrl ->
+            Text(
+                text = article.title ?: "No Title",
+                style = MaterialTheme.typography.headlineSmall,
+            )
+            Spacer(modifier = Modifier.height(16.dp))
             Image(
                 painter = rememberAsyncImagePainter(imageUrl),
                 contentDescription = article.title,
