@@ -1,0 +1,50 @@
+# Starter Project Configuration for OzusNews
+
+## Plugins
+- com.android.application
+- org.jetbrains.kotlin.android
+- org.jetbrains.kotlin.kapt
+- dagger.hilt.android.plugin
+
+## Android Build Settings
+- compileSdk: 34
+- minSdk: 24
+- targetSdk: 34
+- buildFeatures: compose = true, buildConfig = true
+- composeOptions: kotlinCompilerExtensionVersion = "1.5.4"
+- kotlinOptions: jvmTarget = "1.8"
+
+## Dependencies
+- Jetpack Compose (ui, material3, tooling, activity-compose, navigation-compose)
+- Hilt (hilt-android, hilt-compiler, hilt-navigation-compose)
+- Retrofit (retrofit, converter-gson)
+- Room (room-runtime, room-ktx, room-compiler, room-paging)
+- Paging 3 (paging-runtime, room-paging)
+- Coil (coil-compose)
+- DataStore (datastore-preferences)
+- WorkManager (work-runtime-ktx)
+- Lifecycle (lifecycle-runtime-ktx, lifecycle-viewmodel-compose)
+- Coroutines (core, android)
+- Testing (junit, junit-android, espresso, compose-ui-test, hilt-android-testing)
+
+## Secure API Key Handling
+- Store API keys in local.properties (e.g., newsapi.key=YOUR_NEWSAPI_KEY_HERE)
+- Expose via BuildConfig in build.gradle.kts
+
+## AndroidX
+- gradle.properties: android.useAndroidX=true
+
+## Dependency Repositories
+- google()
+- mavenCentral()
+- gradlePluginPortal()
+
+## Notes
+- Use Hilt for dependency injection
+- Use Room for local database
+- Use Retrofit for network/API
+- Use Paging 3 for paginated data
+- Use DataStore for preferences
+- Use WorkManager for background tasks
+- Use Coil for image loading
+- Use Jetpack Compose for UI

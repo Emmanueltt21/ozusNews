@@ -1,0 +1,63 @@
+# Features and Task Sheet for OzusNews
+
+## Core Features
+- Modern Jetpack Compose UI
+- MVVM and Clean Architecture
+- NewsAPI.org integration
+- News categories (e.g., Technology, Sports, Business, Health, etc.)
+- Article details view
+- Offline caching (Room)
+- Bookmarking articles
+- Light/Dark theme support
+- Paging for news lists
+- Image loading (Coil)
+- DataStore for preferences
+- Background sync (WorkManager)
+- Dependency injection (Hilt)
+
+## Task Breakdown
+
+### 1. Project Foundation
+- Initialize Android project with modular structure
+- Configure Gradle for Compose, Hilt, Room, Retrofit, Paging, Coil, DataStore, WorkManager
+- Securely store NewsAPI key
+
+### 2. API Layer
+- Define NewsAPI endpoints with Retrofit
+- Create data models for articles, categories, etc.
+- Handle API key securely
+
+### 3. Data Persistence
+- Set up Room database for articles and bookmarks
+- Implement DAOs and entities
+- Integrate Room with Paging 3
+
+### 4. Domain Layer
+- Define use cases for fetching news, bookmarking, etc.
+- Create repository interfaces and implementations
+
+### 5. Presentation Layer
+- Implement ViewModels for news, bookmarks, categories
+- Compose UI for news list, details, bookmarks, categories
+- Navigation between screens
+- Theme switching (light/dark)
+
+### 6. Offline Caching
+- Cache news articles locally
+- Show cached data when offline
+- Background sync with WorkManager
+
+### 7. Bookmarks
+- Add/remove bookmarks
+- Display bookmarked articles
+- Persist bookmarks in Room
+
+### 8. Polish & Testing
+- UI/UX improvements
+- Unit and UI tests (JUnit, Espresso, Compose Test)
+- Error handling and loading states
+- Accessibility and responsiveness
+
+### 9. Documentation
+- Maintain starter_project_config and features/task sheet
+- Add code comments and usage instructions
