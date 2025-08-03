@@ -2,6 +2,8 @@ name: Android CI/CD Release
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*.*.*'
 
